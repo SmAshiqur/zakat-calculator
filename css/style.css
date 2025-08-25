@@ -1,0 +1,334 @@
+/* Zakat Calculator Custom CSS */
+.zkt-calc__wrapper {
+  --zkt-primary: #34b47c;
+  --zkt-primary-dark: #2a9265;
+  --zkt-text: #333333;
+  --zkt-text-light: #666666;
+  --zkt-border: #e2e8f0;
+  --zkt-bg-light: #f9fafb;
+  --zkt-bg-card: #ffffff;
+  --zkt-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --zkt-radius: 8px;
+  --zkt-transition: all 0.3s ease;
+  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 2rem 1rem; */
+  color: var(--zkt-text);
+}
+
+/* Header */
+.zkt-calc__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.zkt-calc__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--zkt-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.zkt-calc__subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--zkt-text-light);
+  max-width: 650px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.zkt-calc__policy-link {
+  display: inline-block;
+  color: var(--zkt-primary);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--zkt-primary);
+  transition: var(--zkt-transition);
+}
+
+.zkt-calc__policy-link:hover {
+  color: var(--zkt-primary-dark);
+  border-color: var(--zkt-primary-dark);
+}
+
+/* Main container layout */
+.zkt-calc__container {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+}
+
+/* Sections */
+.zkt-calc__form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.zkt-calc__section {
+  background-color: var(--zkt-bg-card);
+  border-radius: var(--zkt-radius);
+  padding: 2rem;
+  box-shadow: var(--zkt-shadow);
+}
+
+.zkt-calc__section-header {
+  margin-bottom: 1.5rem;
+}
+
+.zkt-calc__section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--zkt-primary);
+}
+
+.zkt-calc__section-subtitle {
+  font-size: 0.95rem;
+  color: var(--zkt-text-light);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Fields grid */
+.zkt-calc__fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Form elements */
+.zkt-calc__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.zkt-calc__label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--zkt-text);
+  display: flex;
+  align-items: center;
+}
+
+.zkt-calc__input {
+  width: 90%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--zkt-border);
+  border-radius: var(--zkt-radius);
+  font-size: 1rem;
+  transition: var(--zkt-transition);
+  background-color: var(--zkt-bg-light);
+}
+
+.zkt-calc__input:focus {
+  outline: none;
+  border-color: var(--zkt-primary);
+  box-shadow: 0 0 0 2px rgba(52, 180, 124, 0.2);
+}
+
+.zkt-calc__input::placeholder {
+  color: #b9b9b9;
+}
+
+/* Tooltips */
+.zkt-calc__tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.3rem;
+  cursor: help;
+}
+
+.zkt-calc__tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--zkt-primary);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.zkt-calc__tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  max-width: 250px;
+  background-color: #2d3748;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.75rem;
+  z-index: 10;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.zkt-calc__tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2d3748 transparent transparent transparent;
+}
+
+.zkt-calc__tooltip:hover .zkt-calc__tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Results panel */
+.zkt-calc__results {
+  background-color: var(--zkt-bg-card);
+  border-radius: var(--zkt-radius);
+  padding: 1.5rem;
+  box-shadow: var(--zkt-shadow);
+  position: sticky;
+  top: 30px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.zkt-calc__results-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.zkt-calc__results-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--zkt-primary);
+  text-align: center;
+}
+
+.zkt-calc__due-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--zkt-primary);
+  text-align: center;
+  margin: 0 0 1rem;
+  line-height: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; 
+}
+
+.zkt-calc__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: var(--zkt-text);
+  font-size: 0.95rem;
+}
+
+.zkt-calc__row:not(:last-child) {
+  border-bottom: 1px solid var(--zkt-border);
+}
+
+.zkt-calc__row-value {
+  font-weight: 600;
+}
+
+.zkt-calc__nisab-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--zkt-primary);
+  margin: 0.5rem 0;
+}
+
+/* Donation button */
+.zkt-calc__donate-btn {
+  display: block;
+  background-color: var(--zkt-primary);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--zkt-radius);
+  text-decoration: none;
+  /* margin-top: 1.5rem; */
+  transition: var(--zkt-transition);
+  border: none;
+  cursor: pointer;
+}
+
+.zkt-calc__donate-btn:hover {
+  background-color: var(--zkt-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 180, 124, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 990px) {
+  .zkt-calc__container {
+    grid-template-columns: 1fr;
+  }
+  
+  .zkt-calc__results {
+    position: static;
+    order: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .zkt-calc__fields-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .zkt-calc__title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .zkt-calc__section,
+  .zkt-calc__results {
+    padding: 1.5rem;
+  }
+  
+  .zkt-calc__wrapper {
+    padding: 1rem 0.5rem;
+  }
+}
+
+p.zkt-calc__nisab-text {
+  font-size: 14px;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+p.zkt-calc__donate-text {
+  font-size: 14px;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+
+.zkt-calc__price-value {
+  font-weight: 700; 
+  color: #000; 
+}
