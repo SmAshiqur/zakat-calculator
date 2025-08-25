@@ -4,7 +4,7 @@
  * Plugin URI: https://masjidsolutions.net/
  * Description: A plugin to calculate zakat
  * Author: MasjidSolutions
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: https://masjidsolutions.net/
  * GitHub Plugin URI: https://github.com/SmAshiqur/zakat-calculator
  */

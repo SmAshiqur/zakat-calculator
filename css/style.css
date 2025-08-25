@@ -1,6 +1,8 @@
 /* Zakat Calculator Custom CSS */
 .zkt-calc__wrapper {
-  --zkt-primary: #34b47c;
+  /* --zkt-primary: #34b47c; */
+    --zkt-primary: red;
+
   --zkt-primary-dark: #2a9265;
   --zkt-text: #333333;
   --zkt-text-light: #666666;
